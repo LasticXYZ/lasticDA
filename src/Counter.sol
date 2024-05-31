@@ -1,14 +1,17 @@
-// SPDX-License-Identifier: UNLICENSED
-pragma solidity ^0.8.13;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
-contract Counter {
-    uint256 public number;
+import "openzeppelin-contracts/token/ERC20/ERC20.sol";
 
-    function setNumber(uint256 newNumber) public {
-        number = newNumber;
+contract LiqMantleEigen is ERC20 {
+    address public admin;
+
+    constructor() ERC20("LiqMantleEigen", "LME") {
+        admin = msg.sender; // Set the admin as the person who deploys the contract
     }
 
-    function increment() public {
-        number++;
+    function mint(address to, uint256 amount) external {
+        require(msg.sender == admin, "Only admin can mint");
+        _mint(to, amount);
     }
 }
