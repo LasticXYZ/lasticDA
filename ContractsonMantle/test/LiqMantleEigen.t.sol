@@ -1,52 +1,68 @@
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
+
+import "forge-std/Test.sol";
 import "../src/LiqMantleEigen.sol";
 import "../src/OracleMock.sol";
 
-contract LiqMantleEigen {
-    liqMantleEigen LiqMantleEigen;
-    oracleMock OracleMock;
-    const admin = accounts[0];
-    const user1 = accounts[1];
-    const user2 = accounts[2];
+contract LiqMantleEigenTest is Test {
+    LiqMantleEigen liqMantleEigen;
+    OracleMock oracleMock;
+    address admin;
+    address user1;
+    address user2;
 
-    beforeEach(async () => {
-        oracleMock = await OracleMock.new();
-        liqMantleEigen = await LiqMantleEigen.new(oracleMock.address);
-    });
+    function setUp() public {
+        admin = address(this);  // Test contract is the admin
+        user1 = address(0x1);
+        user2 = address(0x2);
+        oracleMock = new OracleMock();
+        liqMantleEigen = new LiqMantleEigen(address(oracleMock));
+        oracleMock.setContribution(user1, 100);
+        oracleMock.setContribution(user2, 200);
+        vm.prank(user1);
+        liqMantleEigen.registerUser();
+        vm.prank(user2);
+        liqMantleEigen.registerUser();
+    }
 
-    describe('Deployment', () => {
-        it('sets the admin correctly', async () => {
-            const retrievedAdmin = await liqMantleEigen.admin();
-            assert.equal(retrievedAdmin, admin, "Admin should be the deployer");
-        });
-    });
+    function testAdminSetCorrectly() public view {
+        assertEq(liqMantleEigen.admin(), admin, "Admin should be the deployer");
+    }
 
-    describe('User registration and token distribution', () => {
-        beforeEach(async () => {
-            await oracleMock.setContribution(user1, 100); // Assuming this is a function in OracleMock
-            await oracleMock.setContribution(user2, 200);
-            await liqMantleEigen.registerUser({from: user1});
-            await liqMantleEigen.registerUser({from: user2});
-        });
+    function testRegisterUserAndFetchContributions() public view {
+        uint256 contribution = liqMantleEigen.userContributions(user1);
+        assertEq(contribution, 100, "Contribution should match oracle data");
+    }
 
-        it('registers users and fetches contributions correctly', async () => {
-            const contribution = await liqMantleEigen.userContributions(user1);
-            assert.equal(contribution.toNumber(), 100, "Contribution should match oracle data");
-        });
+    function testTokenDistribution() public {
+        // Check current user contributions to ensure they are as expected
+        uint256 contributionUser1 = liqMantleEigen.userContributions(user1);
+        uint256 contributionUser2 = liqMantleEigen.userContributions(user2);
+        emit log_named_uint("Contribution User 1", contributionUser1);
+        emit log_named_uint("Contribution User 2", contributionUser2);
 
-        it('distributes tokens correctly based on contributions', async () => {
-            await liqMantleEigen.mintAndDistributeTokens({from: admin});
-            const balanceUser1 = await liqMantleEigen.balanceOf(user1);
-            const balanceUser2 = await liqMantleEigen.balanceOf(user2);
-            assert.isTrue(balanceUser1.toNumber() < balanceUser2.toNumber(), "User2 should receive more tokens than User1");
-        });
+        // Ensure that enough blocks have passed since the last mint
+        uint256 blocksToAdvance = 100 - (block.number - liqMantleEigen.lastMintBlock()) + 1;
+        vm.roll(block.number + blocksToAdvance);
 
-        it('prevents non-admin from distributing tokens', async () => {
-            try {
-                await liqMantleEigen.mintAndDistributeTokens({from: user1});
-                assert.fail("Should have thrown an error");
-            } catch (error) {
-                assert.include(error.message, "revert", "Should revert with 'Only admin can distribute tokens'");
-            }
-        });
-    });
-});
+        // Now attempt to mint and distribute tokens
+        vm.startPrank(admin);
+        liqMantleEigen.mintAndDistributeTokens();
+        vm.stopPrank();
+
+        uint256 balanceUser1 = liqMantleEigen.balanceOf(user1);
+        uint256 balanceUser2 = liqMantleEigen.balanceOf(user2);
+        emit log_named_uint("Balance User 1", balanceUser1);
+        emit log_named_uint("Balance User 2", balanceUser2);
+
+        assertTrue(balanceUser1 < balanceUser2, "User2 should receive more tokens than User1");
+    }
+
+
+    function testNonAdminCannotDistributeTokens() public {
+        vm.prank(user1);
+        vm.expectRevert("Only admin can distribute tokens");
+        liqMantleEigen.mintAndDistributeTokens();
+    }
+}

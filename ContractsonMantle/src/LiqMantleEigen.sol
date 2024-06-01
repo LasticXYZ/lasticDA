@@ -40,18 +40,24 @@ contract LiqMantleEigen is ERC20 {
         require(totalMintedThisPeriod == 0, "Tokens have already been minted for this period");
 
         uint256 totalContributions = sumContributions();
-        uint256 tokensPerContributionUnit = MAX_MINT_AMOUNT_PER_PERIOD / totalContributions;
+        require(totalContributions > 0, "Total contributions must be greater than zero");
 
+        uint256 remainingTokens = MAX_MINT_AMOUNT_PER_PERIOD;
         for (uint i = 0; i < registeredUsers.length; i++) {
             address user = registeredUsers[i];
-            uint256 userTokens = tokensPerContributionUnit * userContributions[user];
+            uint256 userTokens = (userContributions[user] * MAX_MINT_AMOUNT_PER_PERIOD) / totalContributions;
+
+            // Ensure not to exceed the max mint amount
+            userTokens = (remainingTokens > userTokens) ? userTokens : remainingTokens;
             _mint(user, userTokens);
-            totalMintedThisPeriod += userTokens;
+            remainingTokens -= userTokens;
         }
 
+        assert(remainingTokens >= 0);  // Ensure no overflow has occurred
         lastMintBlock = block.number;
         totalMintedThisPeriod = 0;  // Reset for the next period
     }
+
 
     function sumContributions() private view returns (uint256) {
         uint256 total = 0;
