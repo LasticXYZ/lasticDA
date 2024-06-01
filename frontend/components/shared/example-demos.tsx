@@ -136,8 +136,8 @@ function DemoCard({ title, description, href, demo, large }: DemoCardProps) {
       key={title} 
     >
       <div className="flex h-60 items-center justify-center">{demo}</div>
-      <div className="mx-auto max-w-xl text-center">
-        <h2 className="mb-3 bg-gradient-to-br from-black to-stone-500 bg-clip-text text-xl font-bold text-transparent dark:from-stone-100 dark:to-emerald-200 md:text-3xl md:font-normal">
+      <div className="mx-auto my-5 max-w-xl text-center">
+        <h2 className="mb-5 bg-gradient-to-br from-black to-stone-500 bg-clip-text text-xl font-bold text-transparent dark:from-stone-100 dark:to-emerald-200 md:text-3xl md:font-normal">
           <Balancer>{title}</Balancer>
         </h2>
         <div className="prose-sm md:prose -mt-2 leading-normal">
@@ -163,11 +163,22 @@ function DemoCard({ title, description, href, demo, large }: DemoCardProps) {
             >
               {description}
             </ReactMarkdown>
+            <div className="my-5">
+              <div className="mt-2 flex items-center justify-between">
+                <span>Allocation Bonus:</span>
+                <span className="font-bold">5%</span>
+              </div>
+              <div className="mt-2 flex items-center justify-between">
+                <span>Commission:</span>
+                <span className="font-bold">20%</span>
+              </div>
+
+            </div>
           </Balancer>
         </div>
         {!href ? null : (
           <Link href={href} className={cn(buttonVariants(), "my-4")}>
-            More
+            Stake
           </Link>
         )}
       </div>

@@ -14,6 +14,7 @@ import {
 } from "@/components/layout/page-header"
 import { CopyButton } from "@/components/shared/copy-button"
 import { ExampleDemos } from "@/components/shared/example-demos"
+import TokenSummary from "@/components/blockchain/eigenstake"
 
 export default function HomePage() {
   return (
@@ -69,13 +70,11 @@ export default function HomePage() {
         </PageHeaderCTA> */}
       </PageHeader>
       {/* Show how much money eigen token the user has */}
-      <div>
-        <h2 className="text-2xl ">Your Eigen Token</h2>
-        <p className="text-lg">
-          EigenDA is a data availability store made by EigenLabs and built on top of EigenLayer, currently on mainnet since Q2 2024. It is also available on Holesky testnet for testing and development purposes.
-        </p>
-        
+      
+      <div className="container mx-auto flex items-center justify-center px-4">
+        <TokenSummary totalEigenTokens={100} stakedEigenTokens={50} claimableEigenTokens={25} />
       </div>
+
       <ExampleDemos />
     </div>
   )

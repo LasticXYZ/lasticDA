@@ -24,6 +24,15 @@ export const eigenIntegrations = {
       imgDark: "/projects/mantle-dark.svg",
       category: "infrastructure",
     },
+    starter: {
+      name: "Mantle",
+      href: "/projects/mantle",
+      url: "https://mantle.xyz/",
+      description: "Mantle provides infrastructure services for decentralized applications, aiming to simplify blockchain interactions.",
+      imgLight: "/projects/mantle.svg",
+      imgDark: "/projects/mantle-dark.svg",
+      category: "infrastructure",
+    },
     polyHedra: {
       name: "PolyHedra",
       href: "/projects/polyhedra",
