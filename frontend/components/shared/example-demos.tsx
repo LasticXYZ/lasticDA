@@ -103,14 +103,13 @@ export function ExampleDemos({ className, ...props }: ExampleDemosProps) {
   return (
     <div className="flex items-center justify-center">
       <PageSectionGrid className={className} {...props}>
-        {demos.map(({ title, description, href, demo, large }) => (
+        {demos.map(({ title, description, href, demo }) => (
           <DemoCard
             key={title}
             title={title}
             description={description}
             href={href}
             demo={demo}
-            large={large}
           />
         ))}
       </PageSectionGrid>
@@ -122,17 +121,14 @@ interface DemoCardProps extends MotionProps {
   demo: React.ReactNode
   title: string
   description: string
-  large?: boolean
   href?: string
 }
 
-function DemoCard({ title, description, href, demo, large }: DemoCardProps) {
+function DemoCard({ title, description, href, demo }: DemoCardProps) {
   return (
     <motion.div
       variants={fadeUpVariant()}
-      className={`relative col-span-1 overflow-hidden rounded-xl border px-4 shadow-sm transition-shadow hover:shadow-md ${
-        large ? "md:col-span-2" : ""
-      }`}
+      className={`relative col-span-1 overflow-hidden rounded-xl border px-4 shadow-sm transition-shadow hover:shadow-md`}
       key={title} 
     >
       <div className="flex h-60 items-center justify-center">{demo}</div>
