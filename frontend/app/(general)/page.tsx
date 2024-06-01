@@ -20,14 +20,14 @@ export default function HomePage() {
     <div className="container relative mt-20 px-0">
       <PageHeader className="pb-8">
         <Image
-          src="/logo-gradient.png"
+          src="/images.png"
           alt="TurboETH Logo"
-          width={80}
+          width={200}
           height={80}
-          className="h-20 w-20 rounded-2xl"
+          className="h-20 w-40 rounded-2xl"
         />
-        <PageHeaderHeading>Build Web3 in Turbo&nbsp;Mode</PageHeaderHeading>
-        <PageHeaderDescription>{siteConfig.description}</PageHeaderDescription>
+        <PageHeaderHeading>EigenDA</PageHeaderHeading>
+        <PageHeaderDescription>EigenDA is a data availability store made by EigenLabs and built on top of EigenLayer, currently on mainnet since Q2 2024. It is also available on Holesky testnet for testing and development purposes.</PageHeaderDescription>
         <PageHeaderCTA>
           <Link
             href={siteConfig.links.docs}

@@ -10,8 +10,4 @@ export const menuDashboard = [
     label: "Account",
     href: "/eigen/account",
   },
-  {
-    label: "Transactions",
-    href: "/eigen/transactions",
-  },
 ]

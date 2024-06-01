@@ -15,20 +15,20 @@ interface SiteConfig {
   }
 }
 
-export const SITE_CANONICAL = "https://turboeth.xyz"
+export const SITE_CANONICAL = "https://lastic.xyz"
 
 export const siteConfig: SiteConfig = {
-  name: "TurboETH",
-  title: "TurboETH - Web3 App Template",
-  emoji: "⚡",
+  name: "Lastic",
+  title: "Lastic - DA Marketplace",
+  emoji: "🍭",
   description:
-    "Start building full-stack Web3 applications in minutes with TurboETH.",
+    "Data availability Marketplace for Ethereum Layer 2. Lastic is a decentralized marketplace for data availability services on Ethereum Layer 2.",
   localeDefault: "en",
   links: {
-    docs: "https://docs.turboeth.xyz/overview",
-    discord: "https://discord.gg/U4jy7Xfh76",
-    twitter: "https://twitter.com/district_labs",
-    github: "https://github.com/turbo-eth/template-web3-app",
+    docs: "https://docs.eigenlayer.xyz/",
+    discord: "https://discord.com/invite/eigenlayer",
+    twitter: "https://x.com/eigenlayer",
+    github: "https://github.com/Layr-Labs",
   },
 }
 
