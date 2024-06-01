@@ -68,6 +68,14 @@ export default function HomePage() {
           </CopyButton>
         </PageHeaderCTA> */}
       </PageHeader>
+      {/* Show how much money eigen token the user has */}
+      <div>
+        <h2 className="text-2xl ">Your Eigen Token</h2>
+        <p className="text-lg">
+          EigenDA is a data availability store made by EigenLabs and built on top of EigenLayer, currently on mainnet since Q2 2024. It is also available on Holesky testnet for testing and development purposes.
+        </p>
+        
+      </div>
       <ExampleDemos />
     </div>
   )

@@ -73,7 +73,7 @@ export default function IntegrationPage() {
                 </SelectTrigger>
                 <SelectContent>
                   <SelectItem value="turbo">Turbo</SelectItem>
-                  <SelectItem value="district">District</SelectItem>
+                  <SelectItem value="Lastic">Lastic</SelectItem>
                 </SelectContent>
               </Select>
             </div>

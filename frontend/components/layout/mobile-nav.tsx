@@ -81,8 +81,8 @@ export function MobileNav() {
                 </AccordionTrigger>
                 <AccordionContent>
                   <ul className="flex flex-col gap-2">
-                    {integrationCategories.map((category) => (
-                      <>
+                    {integrationCategories.map((category: string, idx: number) => (
+                      <div key={idx}>
                         <h4 className="text-sm font-medium leading-none">
                           {category.charAt(0).toUpperCase() + category.slice(1)}
                         </h4>
@@ -101,7 +101,7 @@ export function MobileNav() {
                               onOpenChange={setOpen}
                             />
                           ))}
-                      </>
+                      </div>
                     ))}
                   </ul>
                 </AccordionContent>

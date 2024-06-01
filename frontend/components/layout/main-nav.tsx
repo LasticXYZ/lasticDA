@@ -48,8 +48,8 @@ function MainNavMenu() {
           <NavigationMenuTrigger>Integrations</NavigationMenuTrigger>
           <NavigationMenuContent className="max-h-[768px] overflow-y-scroll">
             <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[768px] lg:grid-cols-3">
-              {integrationCategories.map((category) => (
-                <>
+              {integrationCategories.map((category: string, idx:number) => (
+                <div key={idx}>
                   <h4
                     key={category}
                     className="text-lg font-medium leading-none md:col-span-2 lg:col-span-3"
@@ -71,13 +71,13 @@ function MainNavMenu() {
                       />
                       </div>
                     ))} */}
-                </>
+                </div>
               ))}
             </ul>
           </NavigationMenuContent>
         </NavigationMenuItem>
         <NavigationMenuItem>
-          <LinkComponent href="https://docs.turboeth.xyz/overview">
+          <LinkComponent href="https://docs.lastic.xyz/">
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
               <span>Documentation</span>
             </NavigationMenuLink>
