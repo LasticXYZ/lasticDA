@@ -1,37 +1,52 @@
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-import "forge-std/Test.sol";
 import "../src/LiqMantleEigen.sol";
+import "../src/OracleMock.sol";
 
-contract LiqMantleEigenTest is Test {
-    LiqMantleEigen token;
-    address admin;
-    address recipient;
+contract LiqMantleEigen {
+    liqMantleEigen LiqMantleEigen;
+    oracleMock OracleMock;
+    const admin = accounts[0];
+    const user1 = accounts[1];
+    const user2 = accounts[2];
 
-    function setUp() public {
-        admin = address(this);  // Set the test contract as the admin
-        recipient = address(0x1);
-        token = new LiqMantleEigen();
-    }
+    beforeEach(async () => {
+        oracleMock = await OracleMock.new();
+        liqMantleEigen = await LiqMantleEigen.new(oracleMock.address);
+    });
 
-    function testAdminMinting() public {
-        uint256 mintAmount = 1000 * 10 ** 18; // Mint 1000 tokens, considering decimals
-        token.mint(recipient, mintAmount); // As admin, try to mint tokens to recipient
+    describe('Deployment', () => {
+        it('sets the admin correctly', async () => {
+            const retrievedAdmin = await liqMantleEigen.admin();
+            assert.equal(retrievedAdmin, admin, "Admin should be the deployer");
+        });
+    });
 
-        // Check if the recipient got the minted amount
-        assertEq(token.balanceOf(recipient), mintAmount, "Minting failed: Balance does not match.");
-    }
+    describe('User registration and token distribution', () => {
+        beforeEach(async () => {
+            await oracleMock.setContribution(user1, 100); // Assuming this is a function in OracleMock
+            await oracleMock.setContribution(user2, 200);
+            await liqMantleEigen.registerUser({from: user1});
+            await liqMantleEigen.registerUser({from: user2});
+        });
 
-    function testUnauthorizedMinting() public {
-        uint256 mintAmount = 1000 * 10 ** 18; // Try to mint 1000 tokens
-        vm.prank(recipient);  // Impersonate a non-admin address
-        vm.expectRevert("Only admin can mint");
-        token.mint(recipient, mintAmount); // This should fail
-    }
+        it('registers users and fetches contributions correctly', async () => {
+            const contribution = await liqMantleEigen.userContributions(user1);
+            assert.equal(contribution.toNumber(), 100, "Contribution should match oracle data");
+        });
 
-    function testInitialAdminIsDeployer() public view {
-        // The admin should be the deployer (this contract in tests)
-        assertEq(token.admin(), admin, "Admin is not correctly set.");
-    }
-}
+        it('distributes tokens correctly based on contributions', async () => {
+            await liqMantleEigen.mintAndDistributeTokens({from: admin});
+            const balanceUser1 = await liqMantleEigen.balanceOf(user1);
+            const balanceUser2 = await liqMantleEigen.balanceOf(user2);
+            assert.isTrue(balanceUser1.toNumber() < balanceUser2.toNumber(), "User2 should receive more tokens than User1");
+        });
+
+        it('prevents non-admin from distributing tokens', async () => {
+            try {
+                await liqMantleEigen.mintAndDistributeTokens({from: user1});
+                assert.fail("Should have thrown an error");
+            } catch (error) {
+                assert.include(error.message, "revert", "Should revert with 'Only admin can distribute tokens'");
+            }
+        });
+    });
+});
