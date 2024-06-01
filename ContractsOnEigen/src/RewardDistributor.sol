@@ -35,14 +35,14 @@ contract RewardDistributor is Ownable {
     function lockTokens(uint256 amount, uint256 time) external {
         require(eigenToken.transferFrom(msg.sender, address(this), amount), "Transfer failed");
         uint256 lockDuration = block.timestamp + time;
-        uint256 lasticAmount = calculateVotingAmount(amount, time);
+        uint256 eigenVotAmount = calculateVotingAmount(amount, time);
 
         locks[msg.sender].push(Lock({
             amount: amount,
             unlockTime: lockDuration
         }));
 
-        eigVotTok.mint(msg.sender, lasticAmount);
+        eigVotTok.mint(msg.sender, eigenVotAmount);
     }
 
     function unlockTokens() external {
