@@ -26,14 +26,9 @@ export function MainNav() {
   return (
     <div className="mr-4 hidden md:flex">
       <Link href="/" className="mr-6 flex items-center space-x-2">
-        <LightDarkImage
-          LightImage="/logo-dark.png"
-          DarkImage="/logo-light.png"
-          alt="TurboETH"
-          className="rounded-full"
-          height={32}
-          width={32}
-        />
+        <div className="text-2xl">
+        🍭
+        </div>
         <span className="hidden bg-gradient-to-br from-black to-stone-500 bg-clip-text text-2xl font-bold text-transparent dark:from-stone-100 dark:to-yellow-200 sm:inline-block">
           {siteConfig.name}
         </span>
@@ -62,9 +57,10 @@ function MainNavMenu() {
                     {category.charAt(0).toUpperCase() + category.slice(1)}
                   </h4>
                   <Separator className="md:col-span-2 lg:col-span-3" />
-                  {Object.values(eigenIntegrations)
+                  {/* {Object.values(eigenIntegrations)
                     .filter((integration) => integration.category === category)
                     .map(({ name, href, description, imgDark, imgLight }) => (
+                      <div key="name">
                       <NavMenuListItem
                         key={name}
                         name={name}
@@ -73,7 +69,8 @@ function MainNavMenu() {
                         lightImage={imgDark}
                         darkImage={imgLight}
                       />
-                    ))}
+                      </div>
+                    ))} */}
                 </>
               ))}
             </ul>
@@ -111,7 +108,7 @@ const NavMenuListItem = ({
       <NavigationMenuLink asChild>
         <a
           href={href}
-          className="flex select-none flex-col gap-y-2 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+          className="flex select-none flex-col gap-y-2 rounded-md p-3 leading-none no-underline outline-none transition-colors"
         >
           <div className="flex items-center gap-x-2">
             <LightDarkImage
@@ -124,7 +121,7 @@ const NavMenuListItem = ({
             />
             <span className="text-base font-medium leading-none">{name}</span>
           </div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+          <p className="line-clamp-2 text-sm leading-snug">
             {description}
           </p>
         </a>

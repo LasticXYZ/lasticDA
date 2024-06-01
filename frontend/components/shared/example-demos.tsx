@@ -29,9 +29,57 @@ const demos = [
     ),
   },
   {
-    title: eigenIntegrations.mantle.name,
-    description: eigenIntegrations.mantle.description,
-    href: eigenIntegrations.mantle.href,
+    title: eigenIntegrations.polyHedra.name,
+    description: eigenIntegrations.polyHedra.description,
+    href: eigenIntegrations.polyHedra.href,
+    demo: (
+      <div className="flex items-center justify-center space-x-20">
+        <Image
+          alt="Disco logo"
+          className="rounded-full"
+          height={100}
+          src="/integrations/discoDark.png"
+          width={100}
+        />
+      </div>
+    ),
+  },
+  {
+    title: eigenIntegrations.lagrange.name,
+    description: eigenIntegrations.lagrange.description,
+    href: eigenIntegrations.lagrange.href,
+    demo: (
+      <div className="flex items-center justify-center space-x-20">
+        <Image
+          alt="Disco logo"
+          className="rounded-full"
+          height={100}
+          src="/integrations/discoDark.png"
+          width={100}
+        />
+      </div>
+    ),
+  },
+  {
+    title: eigenIntegrations.witnessChain.name,
+    description: eigenIntegrations.witnessChain.description,
+    href: eigenIntegrations.witnessChain.href,
+    demo: (
+      <div className="flex items-center justify-center space-x-20">
+        <Image
+          alt="Disco logo"
+          className="rounded-full"
+          height={100}
+          src="/integrations/discoDark.png"
+          width={100}
+        />
+      </div>
+    ),
+  },
+  {
+    title: eigenIntegrations.espressoSystems.name,
+    description: eigenIntegrations.espressoSystems.description,
+    href: eigenIntegrations.espressoSystems.href,
     demo: (
       <div className="flex items-center justify-center space-x-20">
         <Image
@@ -85,6 +133,7 @@ function DemoCard({ title, description, href, demo, large }: DemoCardProps) {
       className={`relative col-span-1 overflow-hidden rounded-xl border px-4 shadow-sm transition-shadow hover:shadow-md ${
         large ? "md:col-span-2" : ""
       }`}
+      key={title} 
     >
       <div className="flex h-60 items-center justify-center">{demo}</div>
       <div className="mx-auto max-w-xl text-center">
