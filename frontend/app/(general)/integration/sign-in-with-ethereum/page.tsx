@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LuBook } from "react-icons/lu"
 
 import { cn } from "@/lib/utils"
@@ -25,8 +25,8 @@ export default function SIWEPage() {
     <div className="container relative mt-20">
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.siwe.imgDark}
-          DarkImage={turboIntegrations.siwe.imgLight}
+          LightImage={eigenIntegrations.siwe.imgDark}
+          DarkImage={eigenIntegrations.siwe.imgLight}
           alt="Sign In with Ethereum Logo"
           width={100}
           height={100}
@@ -38,7 +38,7 @@ export default function SIWEPage() {
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.siwe.url}
+            href={eigenIntegrations.siwe.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}

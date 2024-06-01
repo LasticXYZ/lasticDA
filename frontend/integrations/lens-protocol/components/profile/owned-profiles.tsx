@@ -1,4 +1,4 @@
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import {
   useActiveProfile,
   useActiveProfileSwitch,
@@ -119,8 +119,8 @@ export const OwnedProfiles = () => {
               <LightDarkImage
                 alt="Lens Protocol logo"
                 height={30}
-                LightImage={turboIntegrations.lensProtocol.imgDark}
-                DarkImage={turboIntegrations.lensProtocol.imgLight}
+                LightImage={eigenIntegrations.lensProtocol.imgDark}
+                DarkImage={eigenIntegrations.lensProtocol.imgLight}
                 width={50}
               />
               <div className="mt-2 flex items-center space-x-1">

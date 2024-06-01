@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LuBook } from "react-icons/lu"
 
 import { cn } from "@/lib/utils"
@@ -25,8 +25,8 @@ export default function ConnextPage() {
     <div className="container relative mt-20">
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.connext.imgDark}
-          DarkImage={turboIntegrations.connext.imgLight}
+          LightImage={eigenIntegrations.connext.imgDark}
+          DarkImage={eigenIntegrations.connext.imgLight}
           alt="Connext Logo"
           width={100}
           height={100}
@@ -37,7 +37,7 @@ export default function ConnextPage() {
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.connext.url}
+            href={eigenIntegrations.connext.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}

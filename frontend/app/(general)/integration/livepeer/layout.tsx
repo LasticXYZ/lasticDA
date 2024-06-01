@@ -3,7 +3,7 @@
 import { ReactNode } from "react"
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LuBook } from "react-icons/lu"
 
 import { cn } from "@/lib/utils"
@@ -36,8 +36,8 @@ export default function LayoutIntegration({
       <div className="container relative mt-20">
         <PageHeader className="pb-8">
           <LightDarkImage
-            LightImage={turboIntegrations.livepeer.imgDark}
-            DarkImage={turboIntegrations.livepeer.imgLight}
+            LightImage={eigenIntegrations.livepeer.imgDark}
+            DarkImage={eigenIntegrations.livepeer.imgLight}
             alt="Livepeer Logo"
             width={100}
             height={100}
@@ -48,7 +48,7 @@ export default function LayoutIntegration({
           </PageHeaderDescription>
           <PageHeaderCTA>
             <Link
-              href={turboIntegrations.livepeer.url}
+              href={eigenIntegrations.livepeer.url}
               target="_blank"
               rel="noreferrer noopener"
               className={cn(buttonVariants({ variant: "outline" }))}

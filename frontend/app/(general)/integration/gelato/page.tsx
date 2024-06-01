@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { isAutomateSupported } from "@gelatonetwork/automate-sdk"
 import { LuBook } from "react-icons/lu"
 
@@ -27,8 +27,8 @@ export default function GelatoPage() {
     <div className="container relative mt-20">
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.gelato.imgDark}
-          DarkImage={turboIntegrations.gelato.imgLight}
+          LightImage={eigenIntegrations.gelato.imgDark}
+          DarkImage={eigenIntegrations.gelato.imgLight}
           alt="Gelato Logo"
           width={100}
           height={100}
@@ -40,7 +40,7 @@ export default function GelatoPage() {
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.gelato.url}
+            href={eigenIntegrations.gelato.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}

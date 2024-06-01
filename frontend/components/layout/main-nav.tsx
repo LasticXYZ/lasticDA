@@ -4,7 +4,7 @@ import React from "react"
 import Link from "next/link"
 import {
   integrationCategories,
-  turboIntegrations,
+  eigenIntegrations,
 } from "@/data/turbo-integrations"
 
 import { siteConfig } from "@/config/site"
@@ -62,7 +62,7 @@ function MainNavMenu() {
                     {category.charAt(0).toUpperCase() + category.slice(1)}
                   </h4>
                   <Separator className="md:col-span-2 lg:col-span-3" />
-                  {Object.values(turboIntegrations)
+                  {Object.values(eigenIntegrations)
                     .filter((integration) => integration.category === category)
                     .map(({ name, href, description, imgDark, imgLight }) => (
                       <NavMenuListItem

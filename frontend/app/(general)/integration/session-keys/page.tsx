@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LuBook } from "react-icons/lu"
 import { Address } from "viem"
 
@@ -28,8 +28,8 @@ export default function SessionKeysPage() {
     <div className="container relative mt-20">
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.sessionKeys.imgDark}
-          DarkImage={turboIntegrations.sessionKeys.imgLight}
+          LightImage={eigenIntegrations.sessionKeys.imgDark}
+          DarkImage={eigenIntegrations.sessionKeys.imgLight}
           alt="Session Keys Logo"
           width={100}
           height={100}
@@ -41,7 +41,7 @@ export default function SessionKeysPage() {
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.sessionKeys.url}
+            href={eigenIntegrations.sessionKeys.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}

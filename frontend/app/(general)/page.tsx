@@ -60,13 +60,13 @@ export default function HomePage() {
             Discord
           </Link>
         </PageHeaderCTA>
-        <PageHeaderCTA>
+        {/* <PageHeaderCTA>
           <CopyButton value="pnpm create turbo-eth@latest">
             <span className="text-xs sm:text-base">
               pnpm create turbo-eth@latest
             </span>
           </CopyButton>
-        </PageHeaderCTA>
+        </PageHeaderCTA> */}
       </PageHeader>
       <ExampleDemos />
     </div>

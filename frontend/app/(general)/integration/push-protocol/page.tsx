@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { ApiNotificationType } from "@pushprotocol/restapi"
 import { LuBook } from "react-icons/lu"
 
@@ -56,8 +56,8 @@ export default function PushProtocolPage() {
     <div className="container relative mt-20">
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.push_protocol.imgDark}
-          DarkImage={turboIntegrations.push_protocol.imgLight}
+          LightImage={eigenIntegrations.push_protocol.imgDark}
+          DarkImage={eigenIntegrations.push_protocol.imgLight}
           alt="Push Protocol Logo"
           width={100}
           height={100}
@@ -69,7 +69,7 @@ export default function PushProtocolPage() {
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.push_protocol.url}
+            href={eigenIntegrations.push_protocol.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}

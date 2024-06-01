@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LuBook } from "react-icons/lu"
 import { useAccount } from "wagmi"
 
@@ -35,8 +35,8 @@ export default function EtherscanPage() {
     <div className="container relative mt-20">
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.etherscan.imgDark}
-          DarkImage={turboIntegrations.etherscan.imgLight}
+          LightImage={eigenIntegrations.etherscan.imgDark}
+          DarkImage={eigenIntegrations.etherscan.imgLight}
           alt="Etherscan Logo"
           width={100}
           height={100}
@@ -48,7 +48,7 @@ export default function EtherscanPage() {
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.etherscan.url}
+            href={eigenIntegrations.etherscan.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}

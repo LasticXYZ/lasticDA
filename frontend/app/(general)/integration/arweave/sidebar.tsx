@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 
 import { cn } from "@/lib/utils"
 import { buttonVariants } from "@/components/ui/button"
@@ -12,7 +12,7 @@ import { ArweaveAccountPreview } from "@/integrations/arweave/components/arweave
 export const SideBar = () => {
   const pathname = usePathname()
 
-  const arweaveBaseUrl = turboIntegrations.arweave.href
+  const arweaveBaseUrl = eigenIntegrations.arweave.href
   return (
     <aside aria-label="Sidebar" className="w-full sm:w-64">
       <div className="overflow-y-auto bg-background px-3 py-4 text-left sm:h-full">

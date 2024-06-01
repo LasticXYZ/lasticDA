@@ -2,11 +2,11 @@
 
 import Link from "next/link"
 import { usePathname } from "next/navigation"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 
 import { cn } from "@/lib/utils"
 
-const gitcoinPassportBaseHref = turboIntegrations.gitcoinPassport.href
+const gitcoinPassportBaseHref = eigenIntegrations.gitcoinPassport.href
 
 const links = [
   { title: "Passport", href: gitcoinPassportBaseHref },

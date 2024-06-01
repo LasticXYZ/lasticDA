@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react"
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LensProvider } from "@lens-protocol/react-web"
 import { LuBook } from "react-icons/lu"
 
@@ -31,21 +31,21 @@ export default function LayoutIntegration({
     <>
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.lensProtocol.imgDark}
-          DarkImage={turboIntegrations.lensProtocol.imgLight}
+          LightImage={eigenIntegrations.lensProtocol.imgDark}
+          DarkImage={eigenIntegrations.lensProtocol.imgLight}
           alt="Lens Protocol Logo"
           width={100}
           height={100}
         />
         <PageHeaderHeading>
-          {turboIntegrations.lensProtocol.name}
+          {eigenIntegrations.lensProtocol.name}
         </PageHeaderHeading>
         <PageHeaderDescription>
-          {turboIntegrations.lensProtocol.description}
+          {eigenIntegrations.lensProtocol.description}
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.lensProtocol.url}
+            href={eigenIntegrations.lensProtocol.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}

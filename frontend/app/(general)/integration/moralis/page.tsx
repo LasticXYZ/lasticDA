@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { motion } from "framer-motion"
 import { LuBook } from "react-icons/lu"
 
@@ -34,8 +34,8 @@ export default function MoralisPage() {
     <div className="container relative mt-20">
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.moralis.imgDark}
-          DarkImage={turboIntegrations.moralis.imgLight}
+          LightImage={eigenIntegrations.moralis.imgDark}
+          DarkImage={eigenIntegrations.moralis.imgLight}
           alt="Moralis Logo"
           width={100}
           height={100}
@@ -47,7 +47,7 @@ export default function MoralisPage() {
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.moralis.url}
+            href={eigenIntegrations.moralis.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}

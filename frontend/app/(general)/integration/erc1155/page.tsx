@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LuBook } from "react-icons/lu"
 
 import { cn } from "@/lib/utils"
@@ -29,7 +29,7 @@ import {
 import { Erc1155SetTokenStorage } from "@/integrations/erc1155/components/erc1155-set-token-storage"
 import { useErc1155TokenStorage } from "@/integrations/erc1155/hooks/use-erc1155-token-storage"
 
-const integrationData = turboIntegrations.erc1155
+const integrationData = eigenIntegrations.erc1155
 
 export default function PageIntegration() {
   const [token] = useErc1155TokenStorage()

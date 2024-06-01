@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LuBook } from "react-icons/lu"
 
 import { cn } from "@/lib/utils"
@@ -30,8 +30,8 @@ export default function LitProtocolPage() {
     <div className="container relative mt-20">
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.litProtocol.imgDark}
-          DarkImage={turboIntegrations.litProtocol.imgLight}
+          LightImage={eigenIntegrations.litProtocol.imgDark}
+          DarkImage={eigenIntegrations.litProtocol.imgLight}
           alt="Lit Protocol Logo"
           width={100}
           height={100}
@@ -43,7 +43,7 @@ export default function LitProtocolPage() {
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.litProtocol.url}
+            href={eigenIntegrations.litProtocol.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}

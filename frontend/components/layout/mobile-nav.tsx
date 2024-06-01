@@ -5,7 +5,7 @@ import Link, { LinkProps } from "next/link"
 import { useRouter } from "next/navigation"
 import {
   integrationCategories,
-  turboIntegrations,
+  eigenIntegrations,
 } from "@/data/turbo-integrations"
 import { LuMenu } from "react-icons/lu"
 
@@ -87,7 +87,7 @@ export function MobileNav() {
                           {category.charAt(0).toUpperCase() + category.slice(1)}
                         </h4>
                         <Separator className="col-span-3" />
-                        {Object.values(turboIntegrations)
+                        {Object.values(eigenIntegrations)
                           .filter(
                             (integration) => integration.category === category
                           )

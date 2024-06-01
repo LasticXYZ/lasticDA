@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LuBook } from "react-icons/lu"
 
 import { cn } from "@/lib/utils"
@@ -19,8 +19,8 @@ export default function OpenAIPage() {
     <div className="container relative mt-20">
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.openai.imgDark}
-          DarkImage={turboIntegrations.openai.imgLight}
+          LightImage={eigenIntegrations.openai.imgDark}
+          DarkImage={eigenIntegrations.openai.imgLight}
           alt="OpenAI Logo"
           width={100}
           height={100}
@@ -32,7 +32,7 @@ export default function OpenAIPage() {
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.openai.url}
+            href={eigenIntegrations.openai.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}

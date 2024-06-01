@@ -1,5 +1,5 @@
 import { ImageResponse } from "next/og"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { env } from "env.mjs"
 
 export const runtime = "edge"
@@ -14,9 +14,9 @@ export const contentType = "image/png"
 const url = env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
 
 export function IntegrationOgImage(
-  integration: keyof typeof turboIntegrations
+  integration: keyof typeof eigenIntegrations
 ) {
-  const integrationData = turboIntegrations[integration]
+  const integrationData = eigenIntegrations[integration]
 
   return async function Image() {
     return new ImageResponse(

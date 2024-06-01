@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LuBook } from "react-icons/lu"
 
 import { cn } from "@/lib/utils"
@@ -32,8 +32,8 @@ export default function Erc20Page() {
     <div className="container relative mt-20">
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.erc20.imgDark}
-          DarkImage={turboIntegrations.erc20.imgLight}
+          LightImage={eigenIntegrations.erc20.imgDark}
+          DarkImage={eigenIntegrations.erc20.imgLight}
           alt="ERC20 Logo"
           width={100}
           height={100}
@@ -44,7 +44,7 @@ export default function Erc20Page() {
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.erc20.url}
+            href={eigenIntegrations.erc20.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}

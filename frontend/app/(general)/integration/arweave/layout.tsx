@@ -2,7 +2,7 @@
 
 import React from "react"
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LuBook } from "react-icons/lu"
 
 import { cn } from "@/lib/utils"
@@ -27,8 +27,8 @@ export default function ArweaveLayout({ children }: ArweaveLayoutProps) {
     <div className="container relative mt-20">
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.arweave.imgDark}
-          DarkImage={turboIntegrations.arweave.imgLight}
+          LightImage={eigenIntegrations.arweave.imgDark}
+          DarkImage={eigenIntegrations.arweave.imgLight}
           alt="Arweave Logo"
           width={100}
           height={100}
@@ -41,7 +41,7 @@ export default function ArweaveLayout({ children }: ArweaveLayoutProps) {
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.arweave.url}
+            href={eigenIntegrations.arweave.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}

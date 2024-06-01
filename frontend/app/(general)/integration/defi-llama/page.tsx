@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LuBook } from "react-icons/lu"
 
 import { cn } from "@/lib/utils"
@@ -19,7 +19,7 @@ import {
   FormPercentageChange,
 } from "@/integrations/defi-llama/components"
 
-const integrationData = turboIntegrations.defiLlama
+const integrationData = eigenIntegrations.defiLlama
 
 export default function IntegrationPage() {
   return (

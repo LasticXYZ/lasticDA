@@ -1,5 +1,5 @@
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LuBook } from "react-icons/lu"
 
 import { siteConfig } from "@/config/site"
@@ -25,8 +25,8 @@ export default function AavePage() {
     <div className="container relative mt-20">
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.aave.imgDark}
-          DarkImage={turboIntegrations.aave.imgLight}
+          LightImage={eigenIntegrations.aave.imgDark}
+          DarkImage={eigenIntegrations.aave.imgLight}
           alt="Aave Logo"
           width={100}
           height={100}
@@ -37,7 +37,7 @@ export default function AavePage() {
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.aave.url}
+            href={eigenIntegrations.aave.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}

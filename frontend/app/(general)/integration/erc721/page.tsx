@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LuBook } from "react-icons/lu"
 
 import { cn } from "@/lib/utils"
@@ -34,8 +34,8 @@ export default function ERC721Page() {
     <div className="container relative mt-20">
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.erc721.imgDark}
-          DarkImage={turboIntegrations.erc721.imgLight}
+          LightImage={eigenIntegrations.erc721.imgDark}
+          DarkImage={eigenIntegrations.erc721.imgLight}
           alt="ERC721 Logo"
           width={100}
           height={100}
@@ -46,7 +46,7 @@ export default function ERC721Page() {
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.erc721.url}
+            href={eigenIntegrations.erc721.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}

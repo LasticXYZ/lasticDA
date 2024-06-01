@@ -2,7 +2,7 @@
 
 import { ReactNode } from "react"
 import Link from "next/link"
-import { turboIntegrations } from "@/data/turbo-integrations"
+import { eigenIntegrations } from "@/data/turbo-integrations"
 import { LuBook } from "react-icons/lu"
 
 import { cn } from "@/lib/utils"
@@ -23,21 +23,21 @@ export default function PageIntegration({ children }: { children: ReactNode }) {
     <div className="container relative mt-20">
       <PageHeader className="pb-8">
         <LightDarkImage
-          LightImage={turboIntegrations.gitcoinPassport.imgDark}
-          DarkImage={turboIntegrations.gitcoinPassport.imgLight}
+          LightImage={eigenIntegrations.gitcoinPassport.imgDark}
+          DarkImage={eigenIntegrations.gitcoinPassport.imgLight}
           alt="Gitcoin Passport Logo"
           width={100}
           height={100}
         />
         <PageHeaderHeading>
-          {turboIntegrations.gitcoinPassport.name}
+          {eigenIntegrations.gitcoinPassport.name}
         </PageHeaderHeading>
         <PageHeaderDescription>
-          {turboIntegrations.gitcoinPassport.description}
+          {eigenIntegrations.gitcoinPassport.description}
         </PageHeaderDescription>
         <PageHeaderCTA>
           <Link
-            href={turboIntegrations.gitcoinPassport.url}
+            href={eigenIntegrations.gitcoinPassport.url}
             target="_blank"
             rel="noreferrer noopener"
             className={cn(buttonVariants({ variant: "outline" }))}
