@@ -22,7 +22,7 @@ const demos = [
           alt="Disco logo"
           className="rounded-full"
           height={100}
-          src="/integrations/discoDark.png"
+          src="/integrations/mantle.png"
           width={100}
         />
       </div>
