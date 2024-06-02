@@ -19,7 +19,7 @@ const demos = [
     demo: (
       <div className="flex items-center justify-center space-x-20">
         <Image
-          alt="Disco logo"
+          alt="Mantle logo"
           className="rounded-full"
           height={100}
           src="/integrations/mantle.png"
@@ -27,6 +27,8 @@ const demos = [
         />
       </div>
     ),
+    allocationBonus: "5%",
+    commission: "20%",
   },
   {
     title: eigenIntegrations.polyHedra.name,
@@ -35,14 +37,16 @@ const demos = [
     demo: (
       <div className="flex items-center justify-center space-x-20">
         <Image
-          alt="Disco logo"
+          alt="PolyHedra logo"
           className="rounded-full"
           height={100}
-          src="/integrations/discoDark.png"
+          src="/integrations/polyhedra.png"
           width={100}
         />
       </div>
     ),
+    allocationBonus: "6%",
+    commission: "18%",
   },
   {
     title: eigenIntegrations.lagrange.name,
@@ -51,14 +55,16 @@ const demos = [
     demo: (
       <div className="flex items-center justify-center space-x-20">
         <Image
-          alt="Disco logo"
+          alt="Lagrange logo"
           className="rounded-full"
           height={100}
-          src="/integrations/discoDark.png"
+          src="/integrations/lagrange.png"
           width={100}
         />
       </div>
     ),
+    allocationBonus: "7%",
+    commission: "19%",
   },
   {
     title: eigenIntegrations.witnessChain.name,
@@ -67,14 +73,16 @@ const demos = [
     demo: (
       <div className="flex items-center justify-center space-x-20">
         <Image
-          alt="Disco logo"
+          alt="WitnessChain logo"
           className="rounded-full"
           height={100}
-          src="/integrations/discoDark.png"
+          src="/integrations/witnessChain.png"
           width={100}
         />
       </div>
     ),
+    allocationBonus: "5.5%",
+    commission: "21%",
   },
   {
     title: eigenIntegrations.espressoSystems.name,
@@ -83,16 +91,17 @@ const demos = [
     demo: (
       <div className="flex items-center justify-center space-x-20">
         <Image
-          alt="Disco logo"
+          alt="Espresso Systems logo"
           className="rounded-full"
           height={100}
-          src="/integrations/discoDark.png"
+          src="/integrations/espressoSystems.png"
           width={100}
         />
       </div>
     ),
+    allocationBonus: "6.5%",
+    commission: "22%",
   },
-
 ]
 
 interface ExampleDemosProps extends MotionProps {
@@ -103,13 +112,15 @@ export function ExampleDemos({ className, ...props }: ExampleDemosProps) {
   return (
     <div className="flex items-center justify-center">
       <PageSectionGrid className={className} {...props}>
-        {demos.map(({ title, description, href, demo }) => (
+        {demos.map(({ title, description, href, demo, allocationBonus, commission }) => (
           <DemoCard
             key={title}
             title={title}
             description={description}
             href={href}
             demo={demo}
+            allocationBonus={allocationBonus}
+            commission={commission}
           />
         ))}
       </PageSectionGrid>
@@ -122,9 +133,11 @@ interface DemoCardProps extends MotionProps {
   title: string
   description: string
   href?: string
+  allocationBonus: string
+  commission: string
 }
 
-function DemoCard({ title, description, href, demo }: DemoCardProps) {
+function DemoCard({ title, description, href, demo, allocationBonus, commission }: DemoCardProps) {
   return (
     <motion.div
       variants={fadeUpVariant()}
@@ -162,11 +175,11 @@ function DemoCard({ title, description, href, demo }: DemoCardProps) {
             <div className="my-5">
               <div className="mt-2 flex items-center justify-between">
                 <span>Allocation Bonus:</span>
-                <span className="font-bold">5%</span>
+                <span className="font-bold">{allocationBonus}</span>
               </div>
               <div className="mt-2 flex items-center justify-between">
                 <span>Commission:</span>
-                <span className="font-bold">20%</span>
+                <span className="font-bold">{commission}</span>
               </div>
 
             </div>
