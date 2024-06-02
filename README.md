@@ -6,6 +6,15 @@
 
 _Collective staking rewards for sustainable infrastructure._
 
+### Deployed on Mantle
+
+`LiqMantleEigen.sol`
+ - Address: 0xa3c6d5340c5E362584e05feAa25BeD080b9E23D9
+ - Contract: https://sepolia.mantlescan.xyz/address/0x734d21c71d2c83a6651c237315396abb0e789f8c
+
+`OracleMock.sol`
+ - Address: 0xa3c6d5340c5E362584e05feAa25BeD080b9E23D9
+ - Contract: https://sepolia.mantlescan.xyz/address/0xa3c6d5340c5e362584e05feaa25bed080b9e23d9
 
 ### Abstract
 
