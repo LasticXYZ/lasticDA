@@ -76,7 +76,7 @@ const demos = [
           alt="WitnessChain logo"
           className="rounded-full"
           height={100}
-          src="/integrations/witnessChain.png"
+          src="/integrations/witness.jpeg"
           width={100}
         />
       </div>
@@ -94,7 +94,7 @@ const demos = [
           alt="Espresso Systems logo"
           className="rounded-full"
           height={100}
-          src="/integrations/espressoSystems.png"
+          src="/integrations/espresso.jpeg"
           width={100}
         />
       </div>
