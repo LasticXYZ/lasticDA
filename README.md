@@ -1,4 +1,9 @@
-# Architecture plan 
+# Lastic
+
+![cover](./asset.png)
+
+
+---
 
 Add additional functionality around the Lock up Eigen token that is on Ethereum. Some of the rewards that would be minted would go back to be restaked (or user depends on the settings) and some of the rewards would go to fund other chains.
 
