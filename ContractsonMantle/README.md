@@ -34,6 +34,10 @@ To interact with the LiqMantleEigen contract:
 - Potential changes for a more 
 
 
+## Mantle smart contract deployed at:
+0xa3c6d5340c5E362584e05feAa25BeD080b9E23D9
+
+
 ## Get Started - Backend
 
 ### Build
@@ -69,7 +73,7 @@ $ anvil
 ### Deploy
 
 ```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+$ forge script script/Counter.s.sol:CounterScript --rpc-url https://rpc.testnet.mantle.xyz --private-key <your_private_key>
 ```
 
 ### Cast

@@ -1,0 +1,31 @@
+{
+  "transactions": [
+    {
+      "hash": null,
+      "transactionType": "CREATE",
+      "contractName": "MyContract",
+      "contractAddress": "0xa3c6d5340c5E362584e05feAa25BeD080b9E23D9",
+      "function": null,
+      "arguments": null,
+      "transaction": {
+        "type": "0x02",
+        "from": "0xaa7c602931fe50d0983aba4423c52c467cf61944",
+        "gas": "0x15491",
+        "value": "0x0",
+        "data": "0x6080604052348015600f57600080fd5b50603f80601d6000396000f3fe6080604052600080fdfea264697066735822122089cbebd428d87898e72fdbe094a3cd9e074182ae293003cc88a73c48087e4c8c64736f6c63430008180033",
+        "nonce": "0x0",
+        "accessList": []
+      },
+      "additionalContracts": [],
+      "isFixedGasLimit": false
+    }
+  ],
+  "receipts": [],
+  "libraries": [],
+  "pending": [],
+  "returns": {},
+  "timestamp": 1717321689,
+  "chain": 5003,
+  "multi": false,
+  "commit": "586c361"
+}

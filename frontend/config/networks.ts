@@ -3,6 +3,8 @@
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-
 import { http } from "wagmi"
 import {
+  mantleSepoliaTestnet,
+  mantle,
   arbitrum,
   arbitrumSepolia,
   base,
@@ -19,6 +21,8 @@ import {
 } from "wagmi/chains"
 
 export const chains = [
+  mantleSepoliaTestnet,
+  mantle,
   mainnet,
   optimism,
   arbitrum,
@@ -37,6 +41,8 @@ export const chains = [
 ] as const
 
 export const transports = {
+  [mantleSepoliaTestnet.id]: http(),
+  [mantle.id]: http(),
   [mainnet.id]: http(),
   [sepolia.id]: http(),
   [polygonMumbai.id]: http(),
