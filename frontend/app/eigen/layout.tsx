@@ -22,7 +22,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           <ScrollArea className="py-6 pr-6 lg:py-8">
             <h3 className="text-lg font-normal">User</h3>
             <SidebarNav items={menuDashboard} />
-            <hr className="my-6 border-t border-muted" />
+            <hr className="my-6 border-t" />
             <h3 className="text-lg font-normal">Admin</h3>
             <SidebarNav items={menuAdmin} />
           </ScrollArea>
@@ -32,7 +32,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
               href="https://Lasticlabs.com"
               target="_blank"
               rel="noreferrer"
-              className="w-fit py-2 text-xs text-primary underline-offset-4 hover:underline"
+              className="w-fit py-2 text-xs underline-offset-4 hover:underline"
             >
               Built by Lastic Labs
             </a>
